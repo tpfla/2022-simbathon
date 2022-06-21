@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+<form action="{% url 'update' blog.id %}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <p>제목 : <input type="text" name="title" value = "{{blog.title}}"></p>
+    <p>작성자 : <input type="text" name="writer" value = "{{blog.writer}}"></p>
+    <p>가격 : <input type="text" name="price" value="{{blog.price}}"></p>
+    <p>사진 : <input type="file" name="image" value="{{blog.image}}"></p>
+    <p>내용 : <textarea type="text" name="body" id="" cols="30" rows="30" >{{blog.body}}</textarea> </p>
+    <button type="submit">제출</button>
+</form>
+       
+         
+{% endblock %}
