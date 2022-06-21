@@ -14,4 +14,5 @@ class Blog(models.Model):
 
     def summary(self):
         return self.body[:20]
-# Create your models here.
+
+

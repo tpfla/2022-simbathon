@@ -13,6 +13,8 @@ def buy(request) :
 def sell(request) :
     return render(request, 'main/sell.html')
 
+# buy ---------------------
+
 def detail(request, id):
     blog = get_object_or_404(Blog, pk = id)
     return render(request, 'main/detail.html', {'blog':blog})
@@ -36,7 +38,7 @@ def edit(request, id) :
     edit_blog = Blog.objects.get(id = id)
     return render(request, 'main/edit.html', {'blog' : edit_blog})
 
-def update(request):
+def update(request, id):
     update_blog = Blog.objects.get(id=id)
     update_blog.title = request.POST['title']
     update_blog.writer = request.POST['writer']
@@ -50,4 +52,5 @@ def update(request):
 def delete(request, id) :
     delete_blog = Blog.objects.get(id = id)
     delete_blog.delete()
-    return redirect('main:posts')
+    return redirect('buy')
+
